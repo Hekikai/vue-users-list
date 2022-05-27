@@ -1,8 +1,10 @@
 <template>
 	<header class="header">
-		<div class="header__logo">
-			CONCERT CLUB
-		</div>
+		<router-link to="/users">
+			<div class="header__logo">
+				CONCERT CLUB
+			</div>
+		</router-link>
 		<div class="header__link">
 			Версия для слабовидящих
 		</div>

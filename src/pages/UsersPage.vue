@@ -1,6 +1,6 @@
 <template>
 	<main class="main">
-			<user-card v-for="user in getUsers">
+			<user-card v-for="user in getUsers" :paramId="user.id" :key="user.id">
 				{{ user.name }}
 			</user-card>
 	</main>

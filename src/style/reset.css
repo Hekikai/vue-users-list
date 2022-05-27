@@ -89,6 +89,8 @@ video {
 
 a {
     text-decoration: none;
+    text-underline: none;
+    color: inherit;
 }
 
 input {

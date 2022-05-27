@@ -1,24 +1,34 @@
 <template>
-	<div class="card">
-		<slot></slot>
-	</div>
+	<router-link :to="{path: `/users/${paramId}`}">
+		<div class="card">
+			<slot></slot>
+		</div>
+	</router-link>
 </template>
 
 <script setup>
 
+const props = defineProps({
+	paramId: {
+		type: Number,
+		required: true
+	}
+})
 </script>
 
 <style scoped lang="scss">
 @import '../style/variables';
+@import '../style/mixins';
 
 .card {
-	font-family: 'Alegreya Sans SC', sans-serif;
-	font-weight: 500;
-	font-size: 2.1875rem;
-	line-height: 40px;
+	@include heading;
+	padding: $padding;
+	margin-top: min(40px, 1vw);
 	border: 1px solid $border-color;
-	padding: max(20px, 1vw);
-	margin-top: min(20px, 1vw);
+
+	@media screen and(max-width: 712px) {
+		font-size: 1.5rem;
+	}
 }
 
 </style>

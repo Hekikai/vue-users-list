@@ -1,14 +1,14 @@
 <template>
 	<the-header/>
-	<users-page/>
+	<div class="container">
+		<router-view></router-view>
+	</div>
 </template>
 
 <script setup>
 import TheHeader from './components/TheHeader.vue';
-import UsersPage from './pages/UsersPage.vue';
 
 </script>
-
 
 <style>
 
