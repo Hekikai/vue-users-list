@@ -1,0 +1,26 @@
+@import './variables';
+
+@mixin heading {
+  font-family: "Alegreya Sans SC", sans-serif;
+  font-weight: 500;
+  line-height: 40px;
+  font-size: 1.875rem;
+}
+
+@mixin border {
+  border-left: $border;
+  border-right: $border;
+}
+
+@mixin w-m-p {
+  width: 90%;
+  margin: 0 auto;
+  padding: max(20px, 1vw);
+}
+
+@mixin looksLikeTable {
+  width: 80%;
+  margin: min(20px, 1vw) auto max(20px, 2vw) auto;
+  border: 1px solid $border-color;
+  border-bottom: none;
+}
