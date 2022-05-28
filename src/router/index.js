@@ -11,12 +11,12 @@ const routes = [
 		redirect: '/users'
 	},
 	{
-		path: '/users',
+		path: '/vue-users-list/users',
 		name: 'MainPage',
 		component: MainPage
 	},
 	{
-		path: '/users/:id',
+		path: '/vue-users-list/users/:id',
 		component: UserPage,
 		children: [
 			{
@@ -26,12 +26,12 @@ const routes = [
 		]
 	},
 	{
-		path: '/users/:id/posts',
+		path: '/vue-users-list/users/:id/posts',
 		component: UserPostsPage,
 		name: 'UserPostsPage'
 	},
 	{
-		path: '/users/:id/posts/:postId',
+		path: '/vue-users-list/users/:id/posts/:postId',
 		component: PostPage,
 		name: 'PostPage'
 	}
