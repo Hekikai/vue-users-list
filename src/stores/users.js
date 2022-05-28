@@ -9,6 +9,9 @@ export const useUsersStore = defineStore('userStore', {
 	actions: {
 		loadUsers() {
 			userService.fetchUsers().then(res => {
+				if (this.users.length !== 0) {
+					this.users.length = 0;
+				}
 				res.forEach((user) => {
 					this.users.push(user);
 				})

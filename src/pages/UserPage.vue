@@ -42,7 +42,7 @@
 </template>
 
 <script setup>
-import UserPosts from '../components/UserPosts.vue';
+import UserPosts from '../components/user/UserPosts.vue';
 import { useRoute } from "vue-router";
 import {  watch } from "vue";
 import { useUsersStore } from "../stores/users";

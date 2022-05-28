@@ -26,18 +26,18 @@
 	height: 70px;
 	position: sticky;
 	top: 0;
+	
+	@media screen and (max-width: 100px) {
+		justify-content: left;
+	}
 
 	&__logo {
-		font-family: 'Alegreya Sans SC', sans-serif;
-		font-size: 1.75rem;
-		line-height: 60px;
+		font: 1.75rem/60px 'Alegreya Sans SC', sans-serif;
 		color: $white-color;
 	}
 
 	&__link {
-		font-family: 'Proxima Nova', sans-serif;
-		font-size: 14px;
-		line-height: 17px;
+		font: 14px/17px 'Proxima Nova', sans-serif;
 		background-color: $white-color;
 		padding: 10px 40px;
 		font-weight: 600;

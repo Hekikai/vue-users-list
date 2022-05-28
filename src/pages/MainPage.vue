@@ -1,6 +1,10 @@
 <template>
 	<main class="main">
-			<user-card v-for="user in getUsers" :paramId="user.id" :key="user.id">
+			<user-card
+					v-for="user in getUsers"
+					:paramId="user.id"
+					:key="user.id"
+			>
 				{{ user.name }}
 			</user-card>
 	</main>
@@ -8,7 +12,7 @@
 
 <script setup>
 import { onMounted } from "vue";
-import UserCard from '../components/UserCard.vue';
+import UserCard from '../components/user/UserCard.vue';
 import { useUsersStore } from "../stores/users";
 
 const userStore = useUsersStore();
