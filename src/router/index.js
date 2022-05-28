@@ -8,15 +8,15 @@ import PostPage from '../pages/PostPage.vue';
 const routes = [
 	{
 		path: '/',
-		redirect: '/vue-users-list/users'
+		redirect: '/users'
 	},
 	{
-		path: '/vue-users-list/users',
+		path: '/users',
 		name: 'MainPage',
 		component: MainPage
 	},
 	{
-		path: '/vue-users-list/users/:id',
+		path: '/users/:id',
 		component: UserPage,
 		children: [
 			{
@@ -26,12 +26,12 @@ const routes = [
 		]
 	},
 	{
-		path: '/vue-users-list/users/:id/posts',
+		path: '/users/:id/posts',
 		component: UserPostsPage,
 		name: 'UserPostsPage'
 	},
 	{
-		path: '/vue-users-list/users/:id/posts/:postId',
+		path: '/users/:id/posts/:postId',
 		component: PostPage,
 		name: 'PostPage'
 	}
