@@ -20,8 +20,8 @@ import { usePostsStore } from "../../stores/posts";
 import { useRoute } from "vue-router";
 
 const route = useRoute();
-const store = usePostsStore();
-const {loadPostsByUserId, getPosts} = store;
+const postsStore = usePostsStore();
+const {loadPostsByUserId, getPosts} = postsStore;
 
 onMounted(() => loadPostsByUserId(route.params.id));
 

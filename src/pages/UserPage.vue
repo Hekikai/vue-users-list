@@ -37,25 +37,24 @@
 				</p>
 			</div>
 		</section>
-		<user-posts/>
+		<router-view/>
 	</div>
 </template>
 
 <script setup>
-import UserPosts from '../components/user/UserPosts.vue';
 import { useRoute } from "vue-router";
-import {  watch } from "vue";
+import { watch } from "vue";
 import { useUsersStore } from "../stores/users";
 import { storeToRefs } from "pinia";
 
 const route = useRoute();
-const store = useUsersStore();
-const {loadUserById} = store;
-const {userById} = storeToRefs(store);
+const userStore = useUsersStore();
+const {loadUserById} = userStore;
+const {userById} = storeToRefs(userStore);
 
 watch(() => route.params.id,
 		() => {
-			if(typeof route.params.id === 'undefined') {
+			if (typeof route.params.id === 'undefined') {
 				return;
 			}
 			loadUserById(route.params.id);
@@ -70,10 +69,7 @@ watch(() => route.params.id,
 @import '../style/mixins';
 
 .page {
-	width: 80%;
-	margin: min(20px, 1vw) auto max(20px, 2vw) auto;
-	border: 1px solid $border-color;
-	border-bottom: none;
+	@include looksLikeTable;
 
 	&__heading {
 		@include heading;

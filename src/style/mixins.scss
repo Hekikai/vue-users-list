@@ -17,3 +17,10 @@
   margin: 0 auto;
   padding: max(20px, 1vw);
 }
+
+@mixin looksLikeTable {
+  width: 80%;
+  margin: min(20px, 1vw) auto max(20px, 2vw) auto;
+  border: 1px solid $border-color;
+  border-bottom: none;
+}

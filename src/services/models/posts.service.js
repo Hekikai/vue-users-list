@@ -9,6 +9,10 @@ class PostsService extends BaseService {
 
 		}
 	}
+
+	async getCommentsByPostId() {
+
+	}
 }
 
 export default new PostsService();

@@ -4,10 +4,12 @@
 				v-for="(post, index) in getPosts"
 				class="card"
 		>
-			<user-posts-card
-					v-if="index < numberOfPosts"
-					:title="post.title"
-					:body="post.body"/>
+			<router-link :to="{path: getRightPath(post.id)}">
+				<user-posts-card
+						v-if="index < numberOfPosts"
+						:title="post.title"
+						:body="post.body"/>
+			</router-link>
 		</article>
 	</div>
 </template>
@@ -16,11 +18,18 @@
 import UserPostsCard from '../user/UserPostsCard.vue';
 import { useRoute } from "vue-router";
 import { usePostsStore } from "../../stores/posts";
-
-const store = usePostsStore();
-const {getPosts} = store;
+import { onMounted } from "vue";
 
 const route = useRoute();
+const postsStore = usePostsStore();
+const {getPosts, loadPostsByUserId} = postsStore;
+
+const getRightPath = (id) => {
+	return route.path.includes('posts')
+			? `${ route.path }/${ id }`
+			: `${ route.path }/posts/${ id }`
+};
+
 const props = defineProps({
 	posts: {
 		type: Array,
@@ -30,7 +39,9 @@ const props = defineProps({
 		type: Number,
 		required: true
 	}
-})
+});
+
+onMounted(() => loadPostsByUserId(route.params.id));
 </script>
 
 <style scoped lang="scss">

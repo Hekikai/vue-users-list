@@ -11,9 +11,9 @@
 import PostHeader from '../components/posts/PostHeader.vue';
 import PostsCards from '../components/posts/PostsCards.vue';
 import { usePostsStore } from "../stores/posts";
-const store = usePostsStore();
+const postsStore = usePostsStore();
 
-const {getPosts} = store;
+const {getPosts} = postsStore;
 
 </script>
 
