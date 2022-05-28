@@ -8,7 +8,7 @@ import PostPage from '../pages/PostPage.vue';
 const routes = [
 	{
 		path: '/',
-		redirect: '/users'
+		redirect: '/vue-users-list/users'
 	},
 	{
 		path: '/vue-users-list/users',
