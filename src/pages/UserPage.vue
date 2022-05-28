@@ -1,34 +1,50 @@
 <template>
 	<div class="page">
-		<h2 class="page__heading">
-			{{ userById.username }}
-		</h2>
-		<div class="description">
-			<p class="page__info">
-				{{ userById.name }}
-			</p>
-			<p class="page__info">
-				{{ userById.email }}
-			</p>
-			<p class="page__info">
-				{{ userById.phone }}
-			</p>
-			<p class="page__info">
-				{{ userById.website }}
-			</p>
-			<p class="page__info">
-				{{ userById.company.name }}
-			</p>
-			<p class="page__info">
-				{{ userById.company.bs }}
-			</p>
+		<div class="border">
+			<h2 class="page__heading">
+				{{ userById.username }}
+			</h2>
 		</div>
+		<section class="description">
+			<div class="border">
+				<p class="page__info">
+					{{ userById.name }}
+				</p>
+			</div>
+			<div class="border">
+				<p class="page__info">
+					{{ userById.email }}
+				</p>
+			</div>
+			<div class="border">
+				<p class="page__info">
+					{{ userById.phone }}
+				</p>
+			</div>
+			<div class="border">
+				<p class="page__info">
+					{{ userById.website }}
+				</p>
+			</div>
+			<div class="border">
+				<p class="page__info">
+					{{ userById.company.name }}
+				</p>
+			</div>
+			<div class="border">
+				<p class="page__info">
+					{{ userById.company.bs }}
+				</p>
+			</div>
+		</section>
+		<user-posts/>
 	</div>
 </template>
 
 <script setup>
+import UserPosts from '../components/UserPosts.vue';
 import { useRoute } from "vue-router";
-import { watch } from "vue";
+import {  watch } from "vue";
 import { useUsersStore } from "../stores/users";
 import { storeToRefs } from "pinia";
 
@@ -42,7 +58,7 @@ watch(() => route.params.id,
 			if(typeof route.params.id === 'undefined') {
 				return;
 			}
-			loadUserById(route.params.id)
+			loadUserById(route.params.id);
 		},
 		{immediate: true}
 )
@@ -54,27 +70,31 @@ watch(() => route.params.id,
 @import '../style/mixins';
 
 .page {
-	width: 50%;
-	padding: $padding;
+	width: 80%;
+	margin: min(20px, 1vw) auto max(20px, 2vw) auto;
 	border: 1px solid $border-color;
-	margin: min(20px, 1vw) auto 0 auto;
+	border-bottom: none;
+
+	&__heading {
+		@include heading;
+		@include border;
+		@include w-m-p;
+	}
+
+	&__info {
+		@include border;
+		@include w-m-p;
+		font-size: 18px;
+		line-height: 17px;
+	}
 
 	.description {
 		display: flex;
 		flex-direction: column;
-		gap: 20px;
 	}
 
-	&__heading {
-		@include heading;
-		margin-bottom: 20px;
-	}
-
-	&__info {
-		padding: 20px;
-		border: 1px solid $border-color;
-		font-size: 18px;
-		line-height: 17px;
+	.border {
+		border-bottom: $border;
 	}
 }
 

@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia'
 import userService from "../services/models/user.service";
+
 export const useUsersStore = defineStore('userStore', {
 	state: () => ({
 		users: [],
