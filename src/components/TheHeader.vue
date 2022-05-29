@@ -6,7 +6,7 @@
 			</div>
 		</router-link>
 		<span v-if="reactiveWidth > 512" class="header__link">
-			<router-link to="">
+			<router-link to="/visImpaired/users">
 				Версия для слабовидящих
 			</router-link>
 		</span>
@@ -31,7 +31,7 @@ onMounted(() => {
 </script>
 
 <style scoped lang="scss">
-@import "../../style/variables";
+@import "../style/variables";
 
 .header {
 	display: flex;

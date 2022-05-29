@@ -1,16 +1,16 @@
 <template>
 	<section class="posts">
-		<post-header></post-header>
+		<v-im-post-header></v-im-post-header>
 		<router-link :to="{path: `${route.path}/posts`}">
-			<the-button>Show more</the-button>
+			<the-button :buttonFontSize="30" :buttonLineHeight="20">Show more</the-button>
 		</router-link>
-		<posts-cards :posts="getPosts" :numberOfPosts="3"/>
+		<v-im-posts-cards :posts="getPosts" :numberOfPosts="3"/>
 	</section>
 </template>
 
 <script setup>
-import PostHeader from '../posts/PostHeader.vue';
-import PostsCards from '../posts/PostsCards.vue';
+import VImPostHeader from '../posts/VImPostHeader.vue';
+import VImPostsCards from '../posts/VImPostsCards.vue';
 import TheButton from '../../TheButton.vue';
 import { onMounted } from "vue";
 import { usePostsStore } from "../../../stores/posts";

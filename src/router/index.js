@@ -5,6 +5,12 @@ import UserPostsPage from '../pages/normal/UserPostsPage.vue';
 import UserPosts from '../components/normal/user/UserPosts.vue';
 import PostPage from '../pages/normal/PostPage.vue';
 
+import VImMainPage from '../pages/visuallyImpaired/VImMainPage.vue';
+import VImUserPage from '../pages/visuallyImpaired/VImUserPage.vue';
+import VImUserPostsPage from '../pages/visuallyImpaired/VImUserPostsPage.vue';
+import VImUserPosts from '../components/visuallyImpaired/user/VImUserPosts.vue';
+import VImPostPage from '../pages/visuallyImpaired/VImPostPage.vue';
+
 const routes = [
 	{
 		path: '/',
@@ -17,6 +23,7 @@ const routes = [
 	},
 	{
 		path: '/users/:id',
+		name: 'UserPage',
 		component: UserPage,
 		children: [
 			{
@@ -34,7 +41,33 @@ const routes = [
 		path: '/users/:id/posts/:postId',
 		component: PostPage,
 		name: 'PostPage'
-	}
+	},
+	{
+		path: '/visImpaired/users',
+		name: 'VImMainPage',
+		component: VImMainPage
+	},
+	{
+		path: '/visImpaired/users/:id',
+		name: 'VImUserPage',
+		component: VImUserPage,
+		children: [
+			{
+				path: '',
+				component: VImUserPosts
+			}
+		]
+	},
+	{
+		path: '/visImpaired/users/:id/posts',
+		component: VImUserPostsPage,
+		name: 'VImUserPostsPage'
+	},
+	{
+		path: '/visImpaired/users/:id/posts/:postId',
+		component: VImPostPage,
+		name: 'VImPostPage'
+	},
 ];
 
 

@@ -2,6 +2,8 @@
 	<the-button
 			v-if="isUserWantToAddComment === false"
 			@click="handleOpenForm"
+			:buttonFontSize="30"
+			:buttonLineHeight="20"
 	>
 		Add comment
 	</the-button>
@@ -26,12 +28,17 @@
 					class="form__button"
 					@click="handleAppendComment"
 					@keyup.enter="handleAppendComment"
+					:buttonFontSize="30"
+					:buttonLineHeight="20"
 			>
 				Send comment
 			</the-button>
 			<the-button
 					class="form__button"
-					@click="isUserWantToAddComment = false">
+					@click="isUserWantToAddComment = false"
+					:buttonFontSize="30"
+					:buttonLineHeight="20"
+			>
 				Close form
 			</the-button>
 		</div>
@@ -72,7 +79,7 @@ const handleAppendComment = () => {
 const handleOpenForm = () => {
 	isUserWantToAddComment.value = true;
 	nextTick(() => {
-			window.scrollTo(0, document.querySelector('.comments').scrollHeight);
+		window.scrollTo(0, document.querySelector('.comments').scrollHeight);
 	})
 }
 
@@ -93,9 +100,10 @@ const handleOpenForm = () => {
 		background-color: $main-black-color;
 		color: $white-color;
 		padding: 20px;
-		width: 40%;
+		width: 70%;
 		resize: none;
 		margin-bottom: 20px;
+		font-size: 1.5rem;
 	}
 
 	&__button {
@@ -106,6 +114,11 @@ const handleOpenForm = () => {
 	.buttons {
 		display: flex;
 		column-gap: 20px;
+		
+		@media screen and (max-width: 502px) {
+			flex-direction: column;
+			gap: 20px
+		}
 	}
 }
 
