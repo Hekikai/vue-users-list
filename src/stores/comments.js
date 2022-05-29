@@ -13,6 +13,12 @@ export const useCommentsStore = defineStore('commentsStore', {
 				}
 				res.forEach((comment) => this.comments.push(comment));
 			})
+		},
+		addCommentToPost(postId, dto) {
+			commentsService.addCommentToPost(postId, dto).then(res => {
+				this.comments.push(res);
+			})
+			return Promise.resolve();
 		}
 	},
 	getters: {

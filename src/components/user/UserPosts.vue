@@ -2,11 +2,7 @@
 	<section class="posts">
 		<post-header></post-header>
 		<router-link :to="{path: `${route.path}/posts`}">
-			<div class="posts__btn">
-				<button class="show-btn">
-					Show more
-				</button>
-			</div>
+			<the-button>Show more</the-button>
 		</router-link>
 		<posts-cards :posts="getPosts" :numberOfPosts="3"/>
 	</section>
@@ -15,6 +11,7 @@
 <script setup>
 import PostHeader from '../posts/PostHeader.vue';
 import PostsCards from '../posts/PostsCards.vue';
+import TheButton from '../TheButton.vue';
 import { onMounted } from "vue";
 import { usePostsStore } from "../../stores/posts";
 import { useRoute } from "vue-router";
@@ -38,7 +35,7 @@ onMounted(() => loadPostsByUserId(route.params.id));
 		display: flex;
 		justify-content: center;
 		height: max(44px, 1vw);
-		margin-bottom: max(40px, 1vw);
+		margin-bottom: $mbm-40px-1vw;
 		background-color: $main-black-color;
 		border: 1px solid #0D1E4B;
 		cursor: pointer;
