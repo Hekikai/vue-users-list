@@ -1,11 +1,11 @@
 <template>
 	<the-button
 			v-if="isUserWantToAddComment === false"
-			@click="isUserWantToAddComment = true"
+			@click="handleOpenForm"
 	>
 		Add comment
 	</the-button>
-	<section v-else class="form">
+	<section v-show="isUserWantToAddComment === true" class="form">
 		<input
 				type="text"
 				v-model="dto.name"
@@ -41,10 +41,10 @@
 
 <script setup>
 import TheButton from '../TheButton.vue';
-import { reactive, ref, toRaw } from "vue";
-import { useCommentsStore } from "../../stores/comments";
+import { nextTick, reactive, ref, toRaw } from "vue";
+import { useCommentsStore } from "../../../stores/comments";
 import { useRoute } from "vue-router";
-import { clearFormFields } from "../../utils/clearFormFiields";
+import { clearFormFields } from "../../../utils/clearFormFiields";
 
 const route = useRoute();
 
@@ -69,10 +69,18 @@ const handleAppendComment = () => {
 	}
 }
 
+const handleOpenForm = () => {
+	isUserWantToAddComment.value = true;
+	nextTick(() => {
+			window.scrollTo(0, document.querySelector('.comments').scrollHeight);
+	})
+}
+
+
 </script>
 
 <style scoped lang="scss">
-@import '../../style/variables';
+@import '../../../style/variables';
 
 .form {
 	display: flex;

@@ -44,8 +44,9 @@
 <script setup>
 import { useRoute } from "vue-router";
 import { watch } from "vue";
-import { useUsersStore } from "../stores/users";
+import { useUsersStore } from "../../stores/users";
 import { storeToRefs } from "pinia";
+import { scrollToTheTop } from "../../utils/scrollToTheTop";
 
 const route = useRoute();
 const userStore = useUsersStore();
@@ -57,6 +58,7 @@ watch(() => route.params.id,
 			if (typeof route.params.id === 'undefined') {
 				return;
 			}
+			scrollToTheTop();
 			loadUserById(route.params.id);
 		},
 		{immediate: true}
@@ -65,8 +67,8 @@ watch(() => route.params.id,
 </script>
 
 <style scoped lang="scss">
-@import '../style/variables';
-@import '../style/mixins';
+@import '../../style/variables';
+@import '../../style/mixins';
 
 .page {
 	@include looksLikeTable;

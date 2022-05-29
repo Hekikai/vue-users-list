@@ -10,15 +10,23 @@
 </template>
 
 <script setup>
-import CommentCard from '../components/comments/CommentCard.vue';
-import CommentForm from '../components/comments/CommentForm.vue';
+import CommentCard from '../../components/normal/comments/CommentCard.vue';
+import CommentForm from '../../components/normal/comments/CommentForm.vue';
 import { useRoute } from "vue-router";
-import { onMounted } from "vue";
-import { useCommentsStore } from "../stores/comments";
+import { onMounted, watch } from "vue";
+import { useCommentsStore } from "../../stores/comments";
+import { scrollToTheTop } from "../../utils/scrollToTheTop";
 
 const commentStore = useCommentsStore();
 const {loadCommentsByPostId, getComments} = commentStore;
 const route = useRoute();
+
+watch(() => route.params.postId,
+		() => {
+			scrollToTheTop();
+		},
+		{immediate: true}
+)
 
 onMounted(() => loadCommentsByPostId(route.params.postId))
 

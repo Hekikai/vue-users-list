@@ -13,7 +13,7 @@ import PostHeader from '../posts/PostHeader.vue';
 import PostsCards from '../posts/PostsCards.vue';
 import TheButton from '../TheButton.vue';
 import { onMounted } from "vue";
-import { usePostsStore } from "../../stores/posts";
+import { usePostsStore } from "../../../stores/posts";
 import { useRoute } from "vue-router";
 
 const route = useRoute();
@@ -25,8 +25,8 @@ onMounted(() => loadPostsByUserId(route.params.id));
 </script>
 
 <style scoped lang="scss">
-@import '../../style/mixins';
-@import '../../style/variables';
+@import '../../../style/mixins';
+@import '../../../style/variables';
 
 .posts {
 	border-bottom: $border;

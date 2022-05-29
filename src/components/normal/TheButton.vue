@@ -11,7 +11,7 @@
 </script>
 
 <style module lang="scss">
-@import "../style/variables";
+@import "../../style/variables";
 
 .container {
 	display: flex;

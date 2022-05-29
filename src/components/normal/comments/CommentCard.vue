@@ -24,8 +24,8 @@
 </script>
 
 <style scoped lang="scss">
-@import "../../style/variables";
-@import "../../style/mixins";
+@import "../../../style/variables";
+@import "../../../style/mixins";
 
 .comment {
 	@include looksLikeTable;

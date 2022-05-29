@@ -17,7 +17,7 @@
 <script setup>
 import UserPostsCard from '../user/UserPostsCard.vue';
 import { useRoute } from "vue-router";
-import { usePostsStore } from "../../stores/posts";
+import { usePostsStore } from "../../../stores/posts";
 import { onMounted } from "vue";
 
 const route = useRoute();
@@ -46,7 +46,7 @@ onMounted(() => loadPostsByUserId(route.params.id));
 
 <style scoped lang="scss">
 
-@import '../../style/mixins';
+@import '../../../style/mixins';
 
 .cards {
 	@include w-m-p;
