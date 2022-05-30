@@ -5,9 +5,9 @@
 				CONCERT CLUB
 			</div>
 		</router-link>
-		<span @click.self="handleRedirectToVersion" v-if="reactiveWidth > 512"
+		<span @click.self="$router.push(handleRedirectToVersion())" v-if="reactiveWidth > 512"
 					class="header__link">
-			<router-link :to="{path: rightPath}">
+			<router-link :to="handleRedirectToVersion()">
 				<template v-if="!$route.path.includes('visImpaired')">
 					Версия для слабовидящих
 				</template>
@@ -16,40 +16,32 @@
 				</template>
 			</router-link>
 		</span>
-		<the-eye v-else @click="handleRedirectToVersion"/>
+		<the-eye v-else @click="$router.push(handleRedirectToVersion())"/>
 	</header>
 </template>
 
 <script setup>
 import TheEye from './TheEye.vue';
-import { onMounted, ref, watch } from "vue";
+import { onMounted, ref } from "vue";
 import { useRoute } from "vue-router";
-import router from "../router";
 
 const route = useRoute();
-const rightPath = ref('');
 const header = ref(null);
 const reactiveWidth = ref(null);
 
-watch(() => route.path,
-		() => {
-			if (route.path.includes('visImpaired')) {
-				rightPath.value = '/users';
-			} else {
-				rightPath.value = '/visImpaired/users';
-			}
-		})
-
 const handleRedirectToVersion = () => {
-	if (route.path.includes('visImpaired')) {
-		router.push({path: '/users'})
+	if (route.path.startsWith('/visImpaired')) {
+		const visImpairedLength = route.path.split('/')[1].length;
+		const path = route.path.substring(visImpairedLength + 1);
+		return {path};
 	} else {
-		router.push({path: '/visImpaired/users'})
+		const path = '/visImpaired' + route.path;
+		return {path};
 	}
 }
 
 const pathToTheHomePage = () => {
-	return route.path.includes('visImpaired')
+	return route.path.startsWith('/visImpaired')
 			? '/visImpaired/users'
 			: '/users'
 }
