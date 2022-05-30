@@ -6,12 +6,8 @@ class PostsService extends BaseService {
 			const result = await fetch(`${ this.PATH }/posts?userId=${ id }`);
 			return await result.json();
 		} catch (error) {
-
+			throw new Error(`Error while fetching posts by user id - ${error.message}`);
 		}
-	}
-
-	async getCommentsByPostId() {
-
 	}
 }
 

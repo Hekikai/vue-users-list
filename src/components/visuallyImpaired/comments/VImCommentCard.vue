@@ -24,8 +24,8 @@
 </script>
 
 <style scoped lang="scss">
-@import "../../style/variables";
-@import "../../style/mixins";
+@import "../../../style/variables";
+@import "../../../style/mixins";
 
 .comment {
 	@include looksLikeTable;
@@ -35,8 +35,15 @@
 	}
 
 	&__info {
+		font-weight: 600;
+		font-size: 2rem;
+		line-height: 35px;
 		@include border;
 		@include w-m-p;
+		
+		@media screen and (max-width: 600px) {
+			font-size: 1.5rem;
+		}
 	}
 }
 

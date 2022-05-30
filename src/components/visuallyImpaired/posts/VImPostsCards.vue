@@ -5,7 +5,7 @@
 				class="card"
 		>
 			<router-link :to="{path: getRightPath(post.id)}">
-				<user-posts-card
+				<v-im-user-posts-card
 						v-if="index < numberOfPosts"
 						:title="post.title"
 						:body="post.body"/>
@@ -15,9 +15,9 @@
 </template>
 
 <script setup>
-import UserPostsCard from '../user/UserPostsCard.vue';
+import VImUserPostsCard from '../user/VImUserPostsCard.vue';
 import { useRoute } from "vue-router";
-import { usePostsStore } from "../../stores/posts";
+import { usePostsStore } from "../../../stores/posts";
 import { onMounted } from "vue";
 
 const route = useRoute();
@@ -46,7 +46,7 @@ onMounted(() => loadPostsByUserId(route.params.id));
 
 <style scoped lang="scss">
 
-@import '../../style/mixins';
+@import '../../../style/mixins';
 
 .cards {
 	@include w-m-p;
@@ -57,18 +57,14 @@ onMounted(() => loadPostsByUserId(route.params.id));
 	gap: 20px;
 	padding-top: 0;
 
-	@media screen and (max-width: 720px) {
+	@media screen and (max-width: 1400px) {
 		flex-direction: column;
 	}
 
 	.card {
 		align-self: stretch;
 
-		@media screen and (max-width: 1500px) {
-			width: 30%;
-		}
-
-		@media screen and (max-width: 720px) {
+		@media screen and (max-width: 1400px) {
 			width: 100%;
 		}
 	}

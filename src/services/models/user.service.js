@@ -15,7 +15,7 @@ class UserService extends BaseService {
 			const result = await fetch(`${this.PATH}/users/${id}`);
 			return await result.json();
 		} catch (error) {
-
+			throw new Error(`Error while fetching user - ${error.message}`);
 		}
 	}
 }

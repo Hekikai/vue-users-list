@@ -25,12 +25,17 @@ const props = defineProps({
 </script>
 
 <style scoped lang="scss">
-@import "../../style/mixins";
-@import "../../style/variables";
+@import "../../../style/mixins";
+@import "../../../style/variables";
 
 .post {
 	border: $border;
 	padding: $padding;
+	transition: all 0.3s ease-in;
+
+	&:hover {
+		@include shadowOnHover
+	}
 
 	&__heading {
 		font: 700 17px/23.15px 'Open Sans', sans-serif;

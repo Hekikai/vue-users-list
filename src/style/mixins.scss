@@ -1,10 +1,10 @@
 @import './variables';
 
-@mixin heading {
+@mixin heading($fontWeight:500, $lineHeight:40px, $fontSize: 1.875rem) {
   font-family: "Alegreya Sans SC", sans-serif;
-  font-weight: 500;
-  line-height: 40px;
-  font-size: 1.875rem;
+  font-weight: $fontWeight;
+  line-height: $lineHeight;
+  font-size: $fontSize;
 }
 
 @mixin border {
@@ -23,4 +23,11 @@
   margin: min(20px, 1vw) auto max(20px, 2vw) auto;
   border: 1px solid $border-color;
   border-bottom: none;
+}
+
+@mixin shadowOnHover {
+  -webkit-box-shadow: 7px 13px 9px 3px rgba(4, 4, 4, 0.36);
+  -moz-box-shadow: 7px 13px 9px 3px rgba(4, 4, 4, 0.36);
+  box-shadow: 7px 13px 9px 3px rgba(4, 4, 4, 0.36);
+  transition: all 0.2s ease-out;
 }
