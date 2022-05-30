@@ -19,7 +19,6 @@ export const useCommentsStore = defineStore('commentsStore', {
 			commentsService.addCommentToPost(postId, dto).then(res => {
 				this.comments.push(res);
 			})
-			return Promise.resolve();
 		}
 	},
 	getters: {

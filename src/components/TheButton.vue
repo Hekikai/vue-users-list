@@ -37,6 +37,18 @@ const styleObject = {
 	background-color: $main-black-color;
 	border: 1px solid #0D1E4B;
 	cursor: pointer;
+	transition: all 0.2s ease-in;
+
+	&:hover {
+		background-color: $white-color;
+		transition: all 0.3s ease-out;
+
+		.btn {
+			color: $main-black-color;
+			background-color: $white-color;
+			transition: all 0.3s ease-out;
+		}
+	}
 
 	.btn {
 		font-size: v-bind('styleObject.fontSize');
@@ -46,6 +58,7 @@ const styleObject = {
 		border: none;
 		background-color: $main-black-color;
 		cursor: pointer;
+		transition: all 0.2s ease-in;
 	}
 }
 </style>

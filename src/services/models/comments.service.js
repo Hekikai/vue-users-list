@@ -6,13 +6,12 @@ class CommentsService extends BaseService {
 			const result = await fetch(`${ this.PATH }/posts/${ id }/comments`);
 			return await result.json();
 		} catch (error) {
-
+			throw new Error(`Error while fetching comments by post id - ${error.message}`);
 		}
 	}
 
 	async addCommentToPost(postId, dto) {
 		try {
-			console.log(postId)
 			const result = await fetch(`${this.PATH}/posts/${postId}/comments`, {
 				method: "POST",
 				body: JSON.stringify(dto),
@@ -22,7 +21,7 @@ class CommentsService extends BaseService {
 			});
 			return await result.json();
 		} catch (error) {
-
+			throw new Error(`Error while adding comment to the post - ${error.message}`);
 		}
 	}
 }

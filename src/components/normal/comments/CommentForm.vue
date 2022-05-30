@@ -62,10 +62,9 @@ const handleAppendComment = () => {
 	if (dto.name === '' || dto.email === '' || dto.body === '') {
 		alert('Fill all the fields, pls!');
 	} else {
-		addCommentToPost(route.params.postId, toRaw(dto)).then(() => {
-			isUserWantToAddComment.value = false;
+		addCommentToPost(route.params.postId, toRaw(dto));
+			isUserWantToAddComment.value = true;
 			clearFormFields(dto);
-		})
 	}
 }
 

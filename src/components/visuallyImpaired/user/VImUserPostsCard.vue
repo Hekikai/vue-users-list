@@ -31,6 +31,11 @@ const props = defineProps({
 .post {
 	border: $border;
 	padding: $padding;
+	transition: all 0.3s ease-in;
+
+	&:hover {
+		@include shadowOnHover
+	}
 
 	&__heading {
 		font: 800 2rem/40px 'Open Sans', sans-serif;

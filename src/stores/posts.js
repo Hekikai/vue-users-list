@@ -6,7 +6,7 @@ export const usePostsStore = defineStore('postsStore', {
 		posts: []
 	}),
 	actions: {
-		loadPostsByUserId(id, isDisplayed) {
+		loadPostsByUserId(id, isDisplayed = {}) {
 			postsService.getPostsByUserId(id).then(res => {
 				if(this.posts.length !== 0) {
 					this.posts.length = 0;

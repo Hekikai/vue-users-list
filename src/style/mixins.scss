@@ -24,3 +24,10 @@
   border: 1px solid $border-color;
   border-bottom: none;
 }
+
+@mixin shadowOnHover {
+  -webkit-box-shadow: 7px 13px 9px 3px rgba(4, 4, 4, 0.36);
+  -moz-box-shadow: 7px 13px 9px 3px rgba(4, 4, 4, 0.36);
+  box-shadow: 7px 13px 9px 3px rgba(4, 4, 4, 0.36);
+  transition: all 0.2s ease-out;
+}
