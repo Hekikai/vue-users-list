@@ -63,15 +63,15 @@ const handleAppendComment = () => {
 		alert('Fill all the fields, pls!');
 	} else {
 		addCommentToPost(route.params.postId, toRaw(dto));
-			isUserWantToAddComment.value = true;
-			clearFormFields(dto);
+		isUserWantToAddComment.value = false;
+		clearFormFields(dto);
 	}
 }
 
 const handleOpenForm = () => {
 	isUserWantToAddComment.value = true;
 	nextTick(() => {
-			window.scrollTo(0, document.querySelector('.comments').scrollHeight);
+		window.scrollTo(0, document.querySelector('.comments').scrollHeight);
 	})
 }
 
