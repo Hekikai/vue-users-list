@@ -11,6 +11,8 @@ import VImUserPostsPage from '../pages/visuallyImpaired/VImUserPostsPage.vue';
 import VImUserPosts from '../components/visuallyImpaired/user/VImUserPosts.vue';
 import VImPostPage from '../pages/visuallyImpaired/VImPostPage.vue';
 
+import The404Page from '../components/The404Page.vue';
+
 const routes = [
 	{
 		path: '/',
@@ -68,6 +70,11 @@ const routes = [
 		component: VImPostPage,
 		name: 'VImPostPage'
 	},
+	{
+		name: '404Page',
+		path: '/:pathMatch(.*)*',
+		component: The404Page
+	}
 ];
 
 
