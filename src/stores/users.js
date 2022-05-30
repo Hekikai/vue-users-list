@@ -17,9 +17,10 @@ export const useUsersStore = defineStore('userStore', {
 				})
 			})
 		},
-		loadUserById(id) {
+		loadUserById(id, isDisplayed) {
 			userService.loadUser(id).then(res => {
 				this.userById = res;
+				isDisplayed.value = true;
 			})
 		}
 	},

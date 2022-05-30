@@ -6,12 +6,13 @@ export const useCommentsStore = defineStore('commentsStore', {
 		comments: []
 	}),
 	actions: {
-		loadCommentsByPostId(id) {
+		loadCommentsByPostId(id, isDisplayed) {
 			commentsService.getCommentsById(id).then(res => {
 				if (this.comments.length !== 0) {
 					this.comments.length = 0;
 				}
 				res.forEach((comment) => this.comments.push(comment));
+				isDisplayed.value = true;
 			})
 		},
 		addCommentToPost(postId, dto) {

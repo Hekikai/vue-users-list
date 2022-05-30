@@ -1,5 +1,6 @@
 <template>
-	<div class="page">
+	<the-spinner v-if="isUserLoaded === false"/>
+	<div v-else class="page">
 		<div class="border">
 			<h2 class="page__heading">
 				{{ userById.username }}
@@ -43,11 +44,13 @@
 
 <script setup>
 import { useRoute } from "vue-router";
-import { watch } from "vue";
+import { ref, watch } from "vue";
 import { useUsersStore } from "../../stores/users";
 import { storeToRefs } from "pinia";
 import { scrollToTheTop } from "../../utils/scrollToTheTop";
+import TheSpinner from '../../components/TheSpinner.vue';
 
+const isUserLoaded = ref(false);
 const route = useRoute();
 const userStore = useUsersStore();
 const {loadUserById} = userStore;
@@ -59,7 +62,7 @@ watch(() => route.params.id,
 				return;
 			}
 			scrollToTheTop();
-			loadUserById(route.params.id);
+			loadUserById(route.params.id, isUserLoaded);
 		},
 		{immediate: true}
 )
