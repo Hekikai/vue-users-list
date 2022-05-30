@@ -5,7 +5,8 @@
 				CONCERT CLUB
 			</div>
 		</router-link>
-		<span @click="$router.push({path: rightPath})" v-if="reactiveWidth > 512" class="header__link">
+		<span @click.self="handleRedirectToVersion" v-if="reactiveWidth > 512"
+					class="header__link">
 			<router-link :to="{path: rightPath}">
 				<template v-if="!$route.path.includes('visImpaired')">
 					Версия для слабовидящих
