@@ -80,6 +80,10 @@ watch(() => route.params.id,
 		@include heading(800, 50px, 4rem);
 		@include border;
 		@include w-m-p;
+
+		@media screen and (max-width: 1000px) {
+			@include heading(800, 40px, 2.5rem);
+		}
 	}
 
 	&__info {
@@ -87,9 +91,9 @@ watch(() => route.params.id,
 		@include w-m-p;
 		font-size: 3rem;
 		line-height: 54px;
-		
-		@media screen and (max-width: 712px) {
-			font-size: 2rem;
+
+		@media screen and (max-width: 1000px) {
+			font-size: 1.5rem;
 			line-height: 34px;
 		}
 	}

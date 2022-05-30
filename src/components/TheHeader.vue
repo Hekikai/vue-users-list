@@ -1,6 +1,6 @@
 <template>
 	<header ref="header" class="header">
-		<router-link to="/users">
+		<router-link :to="{path: pathToTheHomePage()}">
 			<div class="header__logo">
 				CONCERT CLUB
 			</div>
@@ -45,6 +45,12 @@ const handleRedirectToVersion = () => {
 	} else {
 		router.push({path: '/visImpaired/users'})
 	}
+}
+
+const pathToTheHomePage = () => {
+	return route.path.includes('visImpaired')
+			? '/visImpaired/users'
+			: '/users'
 }
 
 const outputSize = (e) => {
